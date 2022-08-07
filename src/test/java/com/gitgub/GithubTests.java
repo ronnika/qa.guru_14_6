@@ -14,13 +14,12 @@ public class GithubTests {
     @BeforeAll
     static void configure() {
         Configuration.baseUrl = "https://github.com/";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
     void comparePlansTest() {
         open("");
-        $(byText("Pricing")).hover();
+        $(".HeaderMenu").$(byText("Pricing")).hover();
         $(byText("Compare plans")).click();
         $("h1").shouldHave(text("Choose the plan that’s right for you."));
     }
